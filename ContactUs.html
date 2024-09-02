@@ -1,0 +1,364 @@
+<html><head><base href="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact InteractiveGroup.ai - Leading Generative AI Solutions</title>
+<style>
+    :root {
+        --primary-color: #0a2540;
+        --secondary-color: #1e3a8a;
+        --accent-color: #3b82f6;
+        --text-color: #333333;
+        --background-color: #f0f4f8;
+        --light-accent: #e0f2fe;
+        --medium-accent: #bae6fd;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+    .header {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
+    }
+    .header.scrolled {
+        background-color: var(--light-accent);
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    .logo svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .nav-menu {
+        display: flex;
+    }
+    .nav-item {
+        margin-left: 30px;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    .nav-item:hover {
+        color: var(--accent-color);
+    }
+    .contact-section {
+        padding: 120px 50px 80px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+    }
+    .contact-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M25 50 A25 25 0 0 1 75 50 A25 25 0 0 1 25 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') repeat;
+        opacity: 0.2;
+        animation: rotate 60s linear infinite;
+    }
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .contact-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    .contact-heading {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .contact-subheading {
+        font-size: 18px;
+        margin-bottom: 40px;
+        text-align: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .contact-form {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .form-input, .form-textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .form-input:focus, .form-textarea:focus {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+    .form-textarea {
+        height: 150px;
+        resize: vertical;
+    }
+    .submit-button {
+        background-color: var(--accent-color);
+        color: #ffffff;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .submit-button:hover {
+        background-color: #2563eb;
+        transform: translateY(-2px);
+    }
+    .footer {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        padding: 60px 50px;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .footer-section {
+        flex: 1;
+        margin-right: 30px;
+        min-width: 200px;
+    }
+    .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+    }
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    .footer-section ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+        color: var(--accent-color);
+    }
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .social-icons a {
+        color: #ffffff;
+        font-size: 24px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .social-icons a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+    }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (max-width: 768px) {
+        .header {
+            padding: 15px 20px;
+        }
+        .nav-menu {
+            display: none;
+        }
+        .contact-section {
+            padding: 100px 20px 60px;
+        }
+        .contact-form {
+            padding: 20px;
+        }
+        .footer {
+            padding: 40px 20px;
+        }
+        .footer-content {
+            flex-direction: column;
+        }
+        .footer-section {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="Index.html" class="logo"><img src="img/logo.png" alt="InteractiveGroup.ai logo"/></a>
+            InteractiveGroup.ai
+
+        </div>
+
+        <nav class="nav-menu">
+            <a href="AboutUs.html" class="nav-item">About</a>
+            <a href="OurServices.html" class="nav-item">Services</a>
+            <a href="Index.html#success-stories" class="nav-item">Insights</a>
+            <a href="ContactUs.html" class="nav-item">Contact</a>
+            <a href="JoinUs.html" class="nav-item">Careers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </nav>
+
+    </header>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <p class="contact-subheading">We look forward to receiving your message.</p>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="company" class="form-label">Company</label>
+                    <input type="text" id="company" name="company" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-textarea" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#strategic-consulting">Strategic Consulting</a></li>
+                    <li><a href="#custom-solutions">Custom Gen AI Solutions</a></li>
+                    <li><a href="#application-management">Application Management</a></li>
+                    <li><a href="#training">AI Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#whitepapers">Whitepapers</a></li>
+                    <li><a href="#webinars">Webinars</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://facebook.com" aria-label="Facebook"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.414 6.967h-1.86c-.692 0-.825.334-.825.858v1.732h2.674l-.251 2.718h-2.423v7.713H9.896v-7.713H7.764v-2.718h2.132V7.644c0-2.13 1.102-3.246 3.509-3.246h1.976v2.569z"/></svg></a>
+                    <a href="https://twitter.com" aria-label="Twitter"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.11 9.46c.005.11.007.22.007.33 0 3.4-2.586 7.32-7.32 7.32a7.27 7.27 0 01-3.944-1.156 5.18 5.18 0 003.82-1.07 2.58 2.58 0 01-2.41-1.79 2.57 2.57 0 001.16-.044 2.58 2.58 0 01-2.07-2.53v-.033c.348.193.746.31 1.17.323a2.58 2.58 0 01-.798-3.44 7.32 7.32 0 005.32 2.7 2.58 2.58 0 014.39-2.35 5.15 5.15 0 001.64-.627 2.59 2.59 0 01-1.13 1.42 5.12 5.12 0 001.48-.405 5.23 5.23 0 01-1.28 1.33z"/></svg></a>
+                    <a href="https://linkedin.com" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 16H8v-6h2v6zM9 9.11c-.63 0-1.14-.51-1.14-1.14s.51-1.14 1.14-1.14 1.14.51 1.14 1.14S9.63 9.11 9 9.11zM17 16h-2v-3.23c0-.75-.02-1.71-1.04-1.71-1.04 0-1.2.82-1.2 1.66V16h-2v-6h1.92v.88h.03c.27-.51.92-1.04 1.89-1.04 2.02 0 2.4 1.33 2.4 3.05V16z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 InteractiveGroup.ai Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Change header background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.header').classList.add('scrolled');
+            } else {
+                document.querySelector('.header').classList.remove('scrolled');
+            }
+        });
+
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            // For this example, we'll just log it to the console
+            console.log('Form submitted:', {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value
+            });
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

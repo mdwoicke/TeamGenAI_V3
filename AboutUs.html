@@ -1,0 +1,582 @@
+<html><head><base href="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About InteractiveGroup.ai Inc. - Leading Generative AI Solutions</title>
+<style>
+    :root {
+        --primary-color: #0a2540;
+        --secondary-color: #1e3a8a;
+        --accent-color: #3b82f6;
+        --text-color: #333333;
+        --background-color: #f0f4f8;
+        --light-accent: #e0f2fe;
+        --medium-accent: #bae6fd;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+    .header {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
+    }
+    .header.scrolled {
+        background-color: var(--light-accent);
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    .logo svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .nav-menu {
+        display: flex;
+    }
+    .nav-item {
+        margin-left: 30px;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    .nav-item:hover, .nav-item.active {
+        color: var(--accent-color);
+    }
+    .about-hero {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        padding: 180px 50px 100px;
+        text-align: center;
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+    }
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M25 50 A25 25 0 0 1 75 50 A25 25 0 0 1 25 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') repeat;
+        opacity: 0.5;
+        animation: rotate 60s linear infinite;
+    }
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .about-hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        position: relative;
+    }
+    .about-hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+    .about-content {
+        padding: 80px 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .about-section {
+        flex: 1;
+        min-width: 300px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+    .about-section h2 {
+        font-size: 28px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
+    .about-section p {
+        font-size: 16px;
+        color: var(--text-color);
+    }
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+    .team-member {
+        text-align: center;
+    }
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+    .team-member h3 {
+        font-size: 20px;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    .team-member p {
+        font-size: 14px;
+        color: var(--text-color);
+    }
+    .footer {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        padding: 60px 50px;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .footer-section {
+        flex: 1;
+        margin-right: 30px;
+        min-width: 200px;
+    }
+    .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+    }
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    .footer-section ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+        color: var(--accent-color);
+    }
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .social-icons a {
+        color: #ffffff;
+        font-size: 24px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .social-icons a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+    }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (max-width: 768px) {
+        .header {
+            padding: 15px 20px;
+        }
+        .nav-menu {
+            display: none;
+        }
+        .about-hero {
+            padding: 150px 20px 80px;
+        }
+        .about-hero h1 {
+            font-size: 36px;
+        }
+        .about-hero p {
+            font-size: 18px;
+        }
+        .about-content {
+            padding: 60px 20px;
+        }
+        .footer {
+            padding: 40px 20px;
+        }
+        .footer-content {
+            flex-direction: column;
+        }
+        .footer-section {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+          <a href="Index.html" class="logo"><img src="img/logo.png" alt="InteractiveGroup.ai logo"/></a>
+            InteractiveGroup.ai
+        </div>
+        <nav class="nav-menu">
+            <a href="AboutUs.html" class="nav-item">About</a>
+            <a href="OurServices.html" class="nav-item">Services</a>
+            <a href="Index.html#success-stories" class="nav-item">Insights</a>
+            <a href="ContactUs.html" class="nav-item">Contact</a>
+            <a href="JoinUs.html" class="nav-item">Careers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>About Us</h1>
+        <p>Our mission is to deliver innovative AI solutions that businesses can trust,
+        creating exceptional value through our consulting-led approach.
+        </p>
+    </section>
+
+    <section class="about-content">
+        <div class="about-section">
+            <h2>Our Story</h2>
+            <p>
+            Founded in January 2023, our company emerged to harness the transformative potential of the generative AI mega-trend. With a world-class team at the helm, we are dedicated to pioneering advancements in generative and interactive AI. Our focus is to help businesses leverage these cutting-edge technologies to achieve meaningful outcomes.
+                    </p>    <p>
+            Our approach is deeply consulting-led, ensuring that every AI solution we deliver is tailored, human-centric, and value-driven. We build trust by prioritizing transparency, fostering innovation through relentless curiosity, and driving growth by aligning our strategies with the unique goals of our clients.
+                  </p>      <p>
+            At the heart of our mission is a commitment to deliver innovative AI solutions that businesses can rely on, creating exceptional value through our human-centric, value-led, and outcome-focused principles. We believe that AI should empower, not replace, the human spirit—leading to a future where technology and humanity thrive together.
+                        </p>
+            <p>
+            Led by Gerard Gooch, a proven leader with a track record of building successful ventures,
+            and supported by co-founder and established inventor and innovator Mike Woicke,
+            the company was established to fill a crucial gap in the market for trustable,
+            human-centric AI solutions. With deep expertise in generative AI technologies
+            and a common pursuit for human and business value, we set out to define how Generaive AI integrates
+            with business operations, driving long-term value through.
+            </p>
+
+           <p>
+            Our core values—Trust, Innovation, and Growth—shape everything we do. Guided by our principles of being human-centric, value-led, and outcome-focused, we are committed to providing AI solutions that businesses can trust. Our mission is to create exceptional value through innovation, empowering organizations to achieve their full potential with AI.
+
+                     </p>
+                 <p>
+                    <h2>InteractiveGroup.ai Inc. Founders</h2>
+
+
+                 <img src="img/g.jpg" align="left" alt="" width="200" style="border: 2px solid #000; margin-right: 20px;">
+
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px; margin: 0 auto; padding: 2px; border-radius: 8px;">
+
+        <strong>Gerard Gooch</strong> is an American inventor, entrepreneur, and renowned tech innovator with over 25 years of experience in business transformation. He is widely recognized for his pioneering contributions to Web Application Development, Voice User Interface Design, Customer Experience (CX), and Generative AI. Gerard has held executive positions at leading companies, including Fujitsu, Tesla, NTT Ltd., Imagine Group, and Technocross, where he has consistently driven innovation and spearheaded significant growth initiatives.
+    </p>
+    <p>
+        Gerard's expertise in Generative AI is globally recognized, placing him within the top 0.5-1% of Generative AI Prompt and Agent Engineers worldwide, according to ChatGPT. He has led numerous AI and Generative AI projects, including consulting with Fortune 100 companies on developing new Generative AI features for an established AI solution with 50,000 users, and crafting RFPs to procure Generative AI solutions. Gerard has also created dozens of custom GPTs and specialized AI agents across various industries, such as business, healthcare, law, and education.
+    </p>
+    <p>
+        Some of his notable projects include an AI Assistant for US Federal and State tax preparation, multiple inventions and PoC’s including a real-time Generative AI-powered question detection and response system for meetings, and deploying over 1,800 autonomous AI (Autonomous Supervisors) for contact centers in both the financial services and insurance sectors.
+    </p>
+    <p>
+        Gerard is passionate about empowering the next generation through AI education. He founded YouthGPT, an initiative aimed at helping young people in America learn about and harness the power of Generative Artificial Intelligence, preparing them for a bright future heading into the AI revolution. Gerard’s commitment to making the world a better place extends beyond his work, as he is also a competitive hockey player, professional quad skater, and outdoor enthusiast.
+    </p>
+</div>
+
+
+
+                 </br>
+
+
+        <p>
+
+
+        <div style="font-family: Arial, sans-serif; line-height: 1.7; max-width: 800px; margin: 0 auto; padding: 2px; border-radius: 8px;">
+<img src="img/m.jpg" align="left" alt="" width="200" style="border: 2px solid #000; margin-right: 20px;"> <b>Mike Woicke, Founder and CTO</b> </br> With over a decade of experience in AI and technology, Mike has excelled in developing and deploying cutting-edge AI solutions for various industries. His expertise includes deep learning architectures, machine learning model development, and AI integration strategies, with a focus on natural language processing and multimodal chatbot development.
+Mike has worked with leading companies like Bayer Animal Health, Elanco, and Sharp Imaging, where he played a key role in pioneering AI proof of concept projects and significantly enhancing business operations. He is also a skilled Salesforce Marketing Cloud (SFMC) developer, specializing in advanced automations, customer journeys, and personalized messaging strategies.
+
+At Digital Response Technologies LLC, Mike designed and delivered voice-activated solutions, optimized user experiences, and developed comprehensive AI strategies, showcasing the transformative potential of AI in business. His innovative work has earned him multiple patents, including systems for omnichannel communication and patient monitoring.
+
+</br></br> Mike is passionate about exploring the latest advancements in AI and machine learning, continuously pushing the boundaries of innovation. He is also deeply committed to mentoring and contributing to open-source projects, driving the future of AI forward.
+
+        </p>
+           </div>
+
+<hr style="border: 0; height: 1px; background-color: #ccc; margin: 40px 0;">
+    <h2>Our Team</h2>
+    <div style="font-family: Arial, sans-serif; line-height: 1.7; max-width: 800px; margin: 0 auto; padding: 2px; border-radius: 8px;">
+Our team at InteractiveGroup.ai, beyond our visionary founders, is a dynamic and diverse group of highly skilled professionals, including AI consultants, data scientists, machine learning engineers, AI media specialists, experience designers, and organizational change management experts, all united by a passion for innovation and meaningful impact. Together, we thrive in a vibrant culture that celebrates creativity, collaboration, and the relentless pursuit of excellence. As we explore the vast potential of Generative AI, we are driven by the opportunity to unlock transformative value for people, businesses, and society. Each team member brings unique expertise and fresh perspectives, from developing advanced AI models to crafting exceptional customer experiences, all fueling our mission to shape a future where technology empowers, inspires, and creates lasting positive change.
+
+    </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="about-section" style="background-color: white;">
+
+
+
+        <div style="padding: 5px; background-color: white; font-family: Arial, sans-serif; color: #2C3E50;">
+            <h2 style="font-size: 1.4em; font-weight: bold; margin-bottom: 20px;">TRUSTABLE INTELLIGENCE™</h2>
+            <p style="font-size: 1.2em; line-height: 1.6;">
+
+            Trust is the foundation of our services, ensuring that our clients can confidently rely on the solutions we deliver to drive their success.
+             With our <strong>Trustable Intelligence™</strong>, InteractiveGroup.ai delivers innovative, ethical AI solutions that businesses can rely on. Our approach combines cutting-edge technology with robust security and compliance, ensuring transparency, fairness, and scalability. We empower organizations to harness the full potential of AI, driving sustainable growth and operational excellence.
+            </p>
+            <p style="font-size: 1.2em; font-weight: bold;">
+                Reliable AI begins with Trustable Intelligence™.
+            </p>
+        </div>
+
+
+<p>
+
+Our Core Values are the foundation of everything we do at InteractiveGroup.ai. We are driven by Trust, ensuring that our AI solutions and strategies are built on a foundation of reliability and integrity. We prioritize Innovation, constantly pushing the boundaries of what's possible in AI to deliver cutting-edge solutions for our clients. Finally, we focus on Growth, both for our clients and within our own organization, helping businesses achieve sustainable success through the strategic implementation of AI technologies.
+
+</p>
+
+
+<p>
+
+Our Guiding Principles are the bedrock of everything we do. We are Human-Centric, ensuring that our Interactive AI solutions and workflows are designed with people in mind. We are Value-Led, driving initiatives that deliver real, measurable benefits. And we are Outcome-Focused, committed to achieving results that matter for our clients.
+</p>
+
+
+        <h2>Our Approach</h2>
+            <p>At InteractiveGroup.ai, we take a consultative approach to understand our clients unique
+            challenges and goals, developing custom AI strategies and solutions that align with their business
+            objectives and drive tangible results.</p>
+            <p>Our team of experts stays at the forefront of AI advancements, continuously
+            exploring new technologies and methodologies to ensure our clients benefit from
+            the latest innovations in the field.</p>
+
+
+
+
+
+
+
+
+
+<p>
+Our Strategic Generative AI consulting services are invaluable for businesses seeking to
+navigate the complexities of AI integration and harness its full potential.
+These services provide expert guidance on tailoring AI solutions to specific
+business needs, ensuring that investments in AI drive significant improvements
+in efficiency, innovation, and competitive advantage.
+</p>
+
+
+
+
+
+    <p>
+We combine in-depth expertise in advanced Generative AI technologies,
+including both private and public Large Language Models (LLMs), and platforms
+like OpenAI ChatGPT, Google Bard, Anthropic, Meta, and Amazon. With a robust
+blend of business acumen and technical know-how, coupled with our commitment
+to ethical, trustable AI, and explainable AI, we ensure our deliverables are
+technologically advanced and adhere to the highest standards of ethical and
+ responsible AI practices.
+
+</p>
+
+
+
+    <p>
+<b>It all begins with a solid strategy</b></br>
+Strategic Generative AI consulting services are invaluable for businesses seeking to navigate the complexities of AI integration and harness its full potential. These services provide expert guidance on tailoring AI solutions to specific business needs, ensuring that investments in AI drive significant improvements in efficiency, innovation, and competitive advantage.
+</p>
+
+    <p>
+
+<div style="text-align: center;">
+    <a href="ContactUs.html" class="cta-button" style="font-weight: bold; font-size: 1.2em;">
+        >>>&nbsp;&nbsp;&nbsp;Schedule time to talk Generative AI Strategies&nbsp;&nbsp;&nbsp;<<<
+    </a>
+</div>
+
+
+
+ </p>
+
+
+
+
+
+
+
+<section class="services" style="padding: 5px; background-color: white;">
+    <h2 style="text-align: center; font-size: 1.7em;">Generative AI Consulting Workshops</h2>
+    <p style="text-align: left; font-size: 1.02em;">
+        We provide a comprehensive set of consulting services, tailored to fit the unique needs of businesses at any stage of their Generative AI journey—whether they’re looking to start strategically or take a more tactical approach.
+    </p>
+    <br>
+
+
+                <h3 style="font-size: 1.27em; margin: 0;">Generative AI Exploration</h3>
+
+            <p style="font-size: 1.02em; margin-top: 5px;">
+                Unlock the potential of Generative AI with our executive briefing and workshop designed for leaders looking to drive innovation and growth. Our Generative AI Exploration Workshop offers a foundational introduction to Generative AI, combining expert insights with a guided format optimized to efficiently uncover high-value Gen AI opportunities with a short time to value.
+            </p>
+
+
+
+                <h3 style="font-size: 1.27em; margin: 0;">Generative AI Maturity Model</h3>
+
+            <p style="font-size: 1.02em; margin-top: 5px;">
+                Our Generative AI Maturity Model assesses a business's readiness for Generative AI both strategically and operationally, focusing on key areas like EX/CX, Change Management, and Value Realization. This model provides a comprehensive framework to guide organizations in maximizing Generative AI value across their operations.
+            </p>
+
+
+
+                <h3 style="font-size: 1.27em; margin: 0;">Generative AI Use Case Development</h3>
+
+                Our Generative AI Use Case Development Workshop helps businesses identify and prioritize high-impact AI opportunities by focusing on practical, value-driven use cases. The workshop guides organizations through strategic and operational considerations, ensuring that AI initiatives align with business goals and deliver measurable results.
+
+
+</section>
+
+
+
+
+
+    <section class="cta-section" style="text-align: left;">
+        <h2>Ready to Transform Your Business with Generative AI?</h2>
+
+
+        <div style="text-align: left;">
+
+            <a href="ContactUs.html" class="cta-button" style="font-weight: bold; font-size: 1.2em;">
+            >>>&nbsp;&nbsp;&nbsp;Schedule Your Free Gen AI Workshop Today&nbsp;&nbsp;&nbsp;<<<
+            </a>
+
+            </br>
+                <p style="font-size: 1.1em; text-align: left;">
+                We’re here to answer all your questions and guide you through your Generative AI journey. With our proven expertise, honed within some of the world’s largest companies, we ensure that your Generative AI investments deliver maximum returns. Trust us to help you navigate this exciting frontier with confidence. Reach out today and let's start the conversation.
+                </p>
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+   <section id="contactinfo">
+        <h2>Contact Us</h2>
+
+            <p style="font-family: Arial, sans-serif; line-height: 1.6; font-size: 1.2em; font-weight: bold;">If you have any questions, feel free to reach out to us!</p>
+
+            <p style="margin-top: 20px;">
+                <strong>InteractiveGroup.ai Inc.</strong><br>
+                <strong>Email:</strong> <a href="mailto:generalinquiries@InteractiveGroup.ai" style="color: #2980B9;">generalinquiries@InteractiveGroup.ai</a><br>
+                <strong>Email:</strong> <a href="mailto:sales@InteractiveGroup.ai" style="color: #2980B9;">sales@InteractiveGroup.ai</a><br>
+                <strong>Phone:</strong> <a href="tel:+17166500990" style="color: #2980B9;">‪(716) 650-0990‬</a><br>
+                <strong>Web:</strong> <a href="#" style="color: #2980B9;">InteractiveGroup.ai</a>
+            </p>
+
+        </br>
+        </br>
+
+    </section>
+
+
+    </section>
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#strategic-consulting">Strategic Consulting</a></li>
+                    <li><a href="#custom-solutions">Custom Gen AI Solutions</a></li>
+                    <li><a href="#application-management">Application Management</a></li>
+                    <li><a href="#training">AI Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#whitepapers">Whitepapers</a></li>
+                    <li><a href="#webinars">Webinars</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.414 6.967h-1.86c-.692 0-.825.334-.825.858v1.732h2.674l-.251 2.718h-2.423v7.713H9.896v-7.713H7.764v-2.718h2.132V7.644c0-2.13 1.102-3.246 3.509-3.246h1.976v2.569z"/></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.11 9.46c.005.11.007.22.007.33 0 3.4-2.586 7.32-7.32 7.32a7.27 7.27 0 01-3.944-1.156 5.18 5.18 0 003.82-1.07 2.58 2.58 0 01-2.41-1.79 2.57 2.57 0 001.16-.044 2.58 2.58 0 01-2.07-2.53v-.033c.348.193.746.31 1.17.323a2.58 2.58 0 01-.798-3.44 7.32 7.32 0 005.32 2.7 2.58 2.58 0 014.39-2.35 5.15 5.15 0 001.64-.627 2.59 2.59 0 01-1.13 1.42 5.12 5.12 0 001.48-.405 5.23 5.23 0 01-1.28 1.33z"/></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 16H8v-6h2v6zM9 9.11c-.63 0-1.14-.51-1.14-1.14s.51-1.14 1.14-1.14 1.14.51 1.14 1.14S9.63 9.11 9 9.11zM17 16h-2v-3.23c0-.75-.02-1.71-1.04-1.71-1.04 0-1.2.82-1.2 1.66V16h-2v-6h1.92v.88h.03c.27-.51.92-1.04 1.89-1.04 2.02 0 2.4 1.33 2.4 3.05V16z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 InteractiveGroup.ai Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Change header background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.header').classList.add('scrolled');
+            } else {
+                document.querySelector('.header').classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

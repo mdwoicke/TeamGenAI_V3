@@ -1,0 +1,614 @@
+<html><head><base href="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Us - InteractiveGroup.ai</title>
+<style>
+    :root {
+        --primary-color: #0a2540;
+        --secondary-color: #1e3a8a;
+        --accent-color: #3b82f6;
+        --text-color: #333333;
+        --background-color: #f0f4f8;
+        --light-accent: #e0f2fe;
+        --medium-accent: #bae6fd;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+    .header {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    .logo svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .nav-menu {
+        display: flex;
+    }
+    .nav-item {
+        margin-left: 30px;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    .nav-item:hover {
+        color: var(--accent-color);
+    }
+    .hero {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        padding: 180px 50px 100px;
+        text-align: center;
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M25 50 A25 25 0 0 1 75 50 A25 25 0 0 1 25 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') repeat;
+        opacity: 0.5;
+        animation: rotate 60s linear infinite;
+    }
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        position: relative;
+    }
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+    .cta-button {
+        background-color: var(--accent-color);
+        color: #ffffff;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: inline-block;
+        position: relative;
+    }
+    .cta-button:hover {
+        background-color: #ffffff;
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+    .section {
+        padding: 80px 50px;
+    }
+    .section h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: var(--primary-color);
+        text-align: center;
+    }
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    .benefit-item {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+    .benefit-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    .benefit-item h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+    .benefit-item p {
+        font-size: 16px;
+        color: #666;
+    }
+    .open-positions {
+        background-color: var(--light-accent);
+    }
+    .position-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    .position-item {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .position-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .position-item h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+    .position-item p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    .apply-button {
+        background-color: var(--accent-color);
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+    .apply-button:hover {
+        background-color: var(--secondary-color);
+    }
+    .testimonials {
+        background-color: var(--medium-accent);
+    }
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    .testimonial-item {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .testimonial-item img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    .testimonial-item p {
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    .testimonial-item .name {
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    .footer {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        padding: 60px 50px;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .footer-section {
+        flex: 1;
+        margin-right: 30px;
+        min-width: 200px;
+    }
+    .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+    }
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    .footer-section ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+        color: var(--accent-color);
+    }
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .social-icons a {
+        color: #ffffff;
+        font-size: 24px;
+        transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+        color: var(--accent-color);
+    }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (max-width: 768px) {
+        .header {
+            padding: 15px 20px;
+        }
+        .nav-menu {
+            display: none;
+        }
+        .hero, .section {
+            padding: 100px 20px 60px;
+        }
+        .hero h1 {
+            font-size: 36px;
+        }
+        .hero p {
+            font-size: 18px;
+        }
+        .footer {
+            padding: 40px 20px;
+        }
+        .footer-content {
+            flex-direction: column;
+        }
+        .footer-section {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+         <div class="logo">
+            <a href="Index.html" class="logo"><img src="img/logo.png" alt="InteractiveGroup.ai logo"/></a>
+            InteractiveGroup.ai
+
+        </div>
+
+        <nav class="nav-menu">
+            <a href="AboutUs.html" class="nav-item">About</a>
+            <a href="OurServices.html" class="nav-item">Services</a>
+            <a href="Index.html#success-stories" class="nav-item">Insights</a>
+            <a href="ContactUs.html" class="nav-item">Contact</a>
+            <a href="JoinUs.html" class="nav-item">Careers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <h1>Careers</h1>
+        <p>Join our dynamic team shaping the future of Generative AI! We're seeking passionate individuals ready to push boundaries and create high-value solutions for people, businesses, and society.
+        </p>
+        <a href="#open-positions" class="cta-button">Explore Positions</a>
+    </section>
+
+    <section class="section benefits">
+        <h2>Why Work With Us</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#e0f2fe"></circle>
+                    <path d="M30 50 L50 30 L70 50 L50 70 Z" stroke="#0a2540" stroke-width="4" fill="#3b82f6"></path>
+                </svg>
+                <h3>Cutting-Edge Technology</h3>
+                <p>Are you passionate about Generative AI? Work with everything from OpenAI/ChatGPT, Anthropic/Claude, and the latest
+                Generative AI&nbsp;frameworks and technologies.
+                Work with the latest AI technologies and contribute to groundbreaking projects.</p>
+            </div>
+            <div class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#e0f2fe"></circle>
+                    <path d="M30 50 A20 20 0 0 1 70 50 A20 20 0 0 1 30 50" stroke="#0a2540" stroke-width="4" fill="#3b82f6"></path>
+                    <circle cx="50" cy="50" r="15" fill="#1e3a8a"></circle>
+                </svg>
+                <h3>Training and Development</h3>
+                <p>We invest in our most important aspect if our business, our people. At InteractiveGroup.ai,
+                you can enhance your
+                Generative AI business and technology skills through ongoing training and development opportunities.</p>
+            </div>
+            <div class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#e0f2fe"></circle>
+                    <path d="M25 50 H75 M50 25 V75" stroke="#0a2540" stroke-width="4"></path>
+                    <circle cx="50" cy="50" r="10" fill="#3b82f6"></circle>
+                </svg>
+                <h3>Collaborative Environment</h3>
+                <p>We foster a collaborative environment where diverse people and ideas come together, driving innovation and empowering our team to achieve shared success.</p>
+            </div>
+            <div class="benefit-item">
+                <svg class="benefit-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#e0f2fe"></circle>
+                    <path d="M30 70 Q50 30 70 70" stroke="#0a2540" stroke-width="4" fill="none"></path>
+                    <circle cx="50" cy="30" r="10" fill="#3b82f6"></circle>
+                </svg>
+                <h3>Rapid Career Growth Potential</h3>
+                <p>As an early-stage company, we offer clear and often rapid paths for advancement and we
+                empower you to lead each day.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section open-positions" id="open-positions">
+        <h2>Open Positions</h2>
+
+               <p style="font-size: 1.5em; font-weight: bold; color: #2C3E50; text-align: center;">
+    To apply, email <a href="mailto:careers@InteractiveGroup.ai" style="color: #2980B9; text-decoration: none;">careers@InteractiveGroup.ai</a>. We will only accept applications by email.
+    Include the job title in the subject of the email. Attach your resume in PDF or Word format.
+</p>
+
+
+        <div class="position-grid">
+<div class="position-item">
+    <h3>Business Development - North America</h3>
+    <p>Join our team as a Business Development professional, where you will refine and execute our partner strategy,
+       expand our network of strategic partners and resellers, and drive growth across North America with innovative AI solutions.</p>
+</div>
+
+
+<div class="position-item">
+    <h3>Executive Assistant</h3>
+    <p>
+
+    Join our team as an Executive Assistant, where you will report directly to the CEO, providing high-level administrative support to our leadership team. You'll manage schedules, coordinate meetings, and handle confidential information, ensuring smooth operations and effective communication across the organization.
+    </p>
+</div>
+
+
+<div class="position-item">
+    <h3>Sales Consultant - Public Sector - North America</h3>
+    <p>Join our dynamic team to drive growth in the public sector by developing and executing sales strategies,
+       building strong relationships, and delivering trusted AI solutions that meet the unique needs of government
+       and public organizations.</p>
+</div>
+
+
+<div class="position-item">
+    <h3>Sales Consultant - Manufacturing - North America</h3>
+    <p>Join our team to drive growth within the manufacturing sector by developing key relationships, expanding
+       our account base, and building a strong pipeline for innovative AI solutions tailored to the unique needs
+       of manufacturing businesses.</p>
+</div>
+
+<div class="position-item">
+    <h3>Generative AI Solution Architect</h3>
+    <p>Join our forward-thinking team as a Generative AI Solution Architect, where you'll design, develop, and implement
+       cutting-edge AI solutions that drive innovation and deliver measurable value for our clients across diverse industries.</p>
+</div>
+
+
+<div class="position-item">
+    <h3>All Software Engineers</h3>
+    <p>We are always looking to grow our team, where you can design, develop, and maintain robust software applications, collaborate with cross-functional teams, and contribute to building innovative AI-driven solutions that enhance business performance.</p>
+</div>
+
+
+<div class="position-item">
+    <h3>Agent/Bot Designer / Prompt GPT Engineer</h3>
+    <p>Join our innovative team as an Agent/Bot Designer and Prompt GPT Engineer, where you'll create and refine AI-driven
+       conversational agents, develop advanced prompts, and design intelligent solutions that enhance user experiences and
+       drive business success.</p>
+</div>
+
+
+<div class="position-item">
+    <h3>Gen AI Integration Specialist</h3>
+    <p>Join our expert team as a Generative AI Integration Specialist, where you will integrate cutting-edge AI technologies
+       into existing business systems, ensuring seamless functionality and enhancing operational efficiency to drive growth and innovation.</p>
+</div>
+
+<div class="position-item">
+    <h3>Full-Time Marketing Coordinator</h3>
+    <p>Join our team as a Marketing Coordinator, where you will develop and execute strategic marketing initiatives, create compelling content,
+       analyze campaign performance, and collaborate across teams to elevate our brand and drive the adoption of our AI solutions.</p>
+</div>
+
+
+
+<div class="position-item">
+    <h3>Public Relations Consultant</h3>
+    <p>Join our team as a Public Relations Consultant, where you will craft and implement strategic communication plans, manage media relations,
+    and enhance our brand reputation through thoughtful and impactful messaging, ensuring our AI solutions resonate with key stakeholders and the public.</p>
+</div>
+
+        </div>
+    </section>
+
+
+
+
+       <!---
+    <section class="section testimonials">
+        <h2>What Our Team Says</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-item">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" width="80" height="80">
+                <p>"Working at InteractiveGroup.ai has been an incredible journey. The collaborative environment and cutting-edge projects keep me motivated and continuously learning."</p>
+                <span class="name">Sarah Johnson, AI Research Scientist</span>
+            </div>
+            <div class="testimonial-item">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" width="80" height="80">
+                <p>"The opportunity to work on impactful AI solutions that transform businesses is truly rewarding. Our team's diversity brings fresh perspectives to every challenge."</p>
+                <span class="name">Michael Chen, Senior AI Engineer</span>
+            </div>
+            <div class="testimonial-item">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Emily Rodriguez" width="80" height="80">
+                <p>"I've grown tremendously both professionally and personally at InteractiveGroup.ai. The support for innovation and continuous learning is unparalleled."</p>
+                <span class="name">Emily Rodriguez, AI Product Manager</span>
+            </div>
+        </div>
+    </section>
+                          --->
+
+                   <p style="font-size: 1.5em; font-weight: bold; color: #2C3E50; text-align: center;">
+    To apply, email <a href="mailto:careers@InteractiveGroup.ai" style="color: #2980B9; text-decoration: none;">careers@InteractiveGroup.ai</a>.
+    </br>We will only accept applications by email.
+    Include the job title in the subject of the email. </br>Attach your resume in PDF or Word format.
+</p>
+
+
+<div class="position-item">
+    <h3><strong style="font-size: 24px;">Working for InteractiveGroup.ai </strong></h3>
+    <p style="font-size: 18px; font-weight: bold;">
+        At InteractiveGroup.ai, we believe in creating a workplace where innovation,
+        collaboration, and growth thrive. Our team of forward-thinking professionals is
+        passionate about pushing the boundaries of what’s possible with AI, and we foster an
+        environment that values creativity, diversity, and continuous learning. Here, you’ll
+        have the opportunity to work on cutting-edge AI projects that drive real-world impact,
+        shape the future of technology, and make a difference in businesses around the globe.
+        Join us, and be part of a company that empowers you to excel, grow, and lead in the AI
+        revolution.
+    </p>
+     <p style="font-size: 18px; font-weight: bold;">
+We are committed to fostering an inclusive and diverse workplace where every employee feels valued and empowered. We believe that our strength lies in the unique perspectives and contributions of individuals from all backgrounds. We do not discriminate based on race, color, religion, sex, national origin, age, disability, genetic information, gender identity, sexual orientation, or any other protected characteristic. Our goal is to create an environment where everyone has the opportunity to thrive, innovate, and contribute to our collective success. We are proud to be an Equal Opportunity Employer, dedicated to ensuring a fair and welcoming space for all.
+     </p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Strategic Consulting</a></li>
+                    <li><a href="#">Custom Gen AI Solutions</a></li>
+                    <li><a href="#">Application Management</a></li>
+                    <li><a href="#">AI Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Whitepapers</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.414 6.967h-1.86c-.692 0-.825.334-.825.858v1.732h2.674l-.251 2.718h-2.423v7.713H9.896v-7.713H7.764v-2.718h2.132V7.644c0-2.13 1.102-3.246 3.509-3.246h1.976v2.569z"></path></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.11 9.46c.005.11.007.22.007.33 0 3.4-2.586 7.32-7.32 7.32a7.27 7.27 0 01-3.944-1.156 5.18 5.18 0 003.82-1.07 2.58 2.58 0 01-2.41-1.79 2.57 2.57 0 001.16-.044 2.58 2.58 0 01-2.07-2.53v-.033c.348.193.746.31 1.17.323a2.58 2.58 0 01-.798-3.44 7.32 7.32 0 005.32 2.7 2.58 2.58 0 014.39-2.35 5.15 5.15 0 001.64-.627 2.59 2.59 0 01-1.13 1.42 5.12 5.12 0 001.48-.405 5.23 5.23 0 01-1.28 1.33z"></path></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 16H8v-6h2v6zM9 9.11c-.63 0-1.14-.51-1.14-1.14s.51-1.14 1.14-1.14 1.14.51 1.14 1.14S9.63 9.11 9 9.11zM17 16h-2v-3.23c0-.75-.02-1.71-1.04-1.71-1.04 0-1.2.82-1.2 1.66V16h-2v-6h1.92v.88h.03c.27-.51.92-1.04 1.89-1.04 2.02 0 2.4 1.33 2.4 3.05V16z"></path></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 InteractiveGroup.ai Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Change header background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.header').classList.add('scrolled');
+            } else {
+                document.querySelector('.header').classList.remove('scrolled');
+            }
+        });
+
+        // Add hover effect to benefit items
+        document.querySelectorAll('.benefit-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#bae6fd';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#ffffff';
+            });
+        });
+
+        // Add hover effect to position items
+        document.querySelectorAll('.position-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#e0f2fe';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#ffffff';
+            });
+        });
+    </script>
+
+</body></html>

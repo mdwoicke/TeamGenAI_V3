@@ -1,0 +1,568 @@
+<html><head><base href="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Us - InteractiveGroup.ai</title>
+<style>
+    :root {
+        --primary-color: #0a2540;
+        --secondary-color: #1e3a8a;
+        --accent-color: #3b82f6;
+        --text-color: #333333;
+        --background-color: #f0f4f8;
+        --light-accent: #e0f2fe;
+        --medium-accent: #bae6fd;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+    .header {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    .logo svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .nav-menu {
+        display: flex;
+    }
+    .nav-item {
+        margin-left: 30px;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    .nav-item:hover {
+        color: var(--accent-color);
+    }
+    .hero {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        padding: 180px 50px 100px;
+        text-align: center;
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M25 50 A25 25 0 0 1 75 50 A25 25 0 0 1 25 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') repeat;
+        opacity: 0.5;
+        animation: rotate 60s linear infinite;
+    }
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        position: relative;
+    }
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+    .cta-button {
+        background-color: var(--accent-color);
+        color: #ffffff;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: inline-block;
+        position: relative;
+    }
+    .cta-button:hover {
+        background-color: #ffffff;
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+    .section {
+        padding: 80px 50px;
+    }
+    .section h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: var(--primary-color);
+        text-align: center;
+    }
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    .benefit-item {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+    .benefit-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    .benefit-item h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+    .benefit-item p {
+        font-size: 16px;
+        color: #666;
+    }
+    .open-positions {
+        background-color: var(--light-accent);
+    }
+    .position-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    .position-item {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .position-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .position-item h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+    .position-item p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    .apply-button {
+        background-color: var(--accent-color);
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+    .apply-button:hover {
+        background-color: var(--secondary-color);
+    }
+    .testimonials {
+        background-color: var(--medium-accent);
+    }
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    .testimonial-item {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .testimonial-item img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    .testimonial-item p {
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    .testimonial-item .name {
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    .footer {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        padding: 60px 50px;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .footer-section {
+        flex: 1;
+        margin-right: 30px;
+        min-width: 200px;
+    }
+    .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+    }
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    .footer-section ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+        color: var(--accent-color);
+    }
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .social-icons a {
+        color: #ffffff;
+        font-size: 24px;
+        transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+        color: var(--accent-color);
+    }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (max-width: 768px) {
+        .header {
+            padding: 15px 20px;
+        }
+        .nav-menu {
+            display: none;
+        }
+        .hero, .section {
+            padding: 100px 20px 60px;
+        }
+        .hero h1 {
+            font-size: 36px;
+        }
+        .hero p {
+            font-size: 18px;
+        }
+        .footer {
+            padding: 40px 20px;
+        }
+        .footer-content {
+            flex-direction: column;
+        }
+        .footer-section {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+         <div class="logo">
+            <a href="Index.html" class="logo"><img src="img/logo.png" alt="InteractiveGroup.ai logo"/></a>
+            InteractiveGroup.ai
+
+        </div>
+
+        <nav class="nav-menu">
+            <a href="AboutUs.html" class="nav-item">About</a>
+            <a href="OurServices.html" class="nav-item">Services</a>
+            <a href="Index.html#success-stories" class="nav-item">Insights</a>
+            <a href="ContactUs.html" class="nav-item">Contact</a>
+            <a href="JoinUs.html" class="nav-item">Careers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </nav>
+
+    </header>
+
+
+
+
+<section class="hero">
+    <h1>Gen AI Impact - Focus on People</h1>
+    <p>How Companies Must Reskill, Repurpose, and Reinvent to Harness Generative AI</p>
+
+    <a href="#sectionarticle" class="cta-button">Read on</a>
+</section>
+
+<div id="sectionarticle" style="padding: 20px; margin: 0 auto; max-width: 1200px; background-color: white;">
+
+
+<div style="text-align: left; font-size: 0.9em; color: #555;">
+    <p><strong>Date:</strong> August 3, 2024 3:03 PM</p>
+    <p><strong>Gerard Gooch</strong> </p>
+</div>
+
+
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+As someone who deeply believes in the power and creativity of people, I find myself both excited and reflective as we stand at the threshold of a decade-long AI revolution. I am convinced that human ingenuity is unparalleled and that, when harnessed correctly, it will lead us into an era of unprecedented innovation. However, I am also acutely aware of the challenges this new era presents. The truth is that while Generative AI offers tremendous opportunities, it also poses significant risks. Some will thrive, embracing and fully leveraging the new possibilities AI presents, while others may struggle, potentially becoming disadvantaged as automation reshapes industries and displaces jobs.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+This dichotomy—between the boundless potential of AI and the very real human cost of disruption—underpins my approach to the work we do at InteractiveGroup.ai and my work with YouthGPT. Our mission at InteractiveGroup.ai is to help businesses navigate this evolving landscape, not just by providing cutting-edge technology, but by ensuring that our solutions are human-centric, ethically sound, and designed to enhance rather than replace human capabilities. My mission at YouthGPT to empower youth with AI skills and job opportunities also reflects my personal and professional committment to positive change.
+    </p>
+
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        With almost 70% of top economic performers using proprietary software for differentiation and a third monetizing software directly, companies face a pressing need to master the rapidly evolving landscape of Generative AI (gen AI). This challenge involves navigating complex platforms, language models, and frameworks to deliver value-creating interactive AI workflows. The stakes are high: those who can quickly adapt to these new technologies will gain a significant competitive advantage.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        However, while much of the focus remains on technology and tools, the broader impact on human resources (HR) and service delivery functions is often underestimated. As companies race to integrate gen AI, they must also manage existing operations—“keeping the lights on”—while simultaneously driving transformation. This dual responsibility will require more time and effort than many anticipate.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        A critical challenge lies in repurposing existing talent, particularly software developers, creative professionals, and related roles. Current employees, who may be adept in traditional software development, often find themselves behind the curve in adopting generative AI skills. Meanwhile, the global supply of experienced gen AI talent remains tight. As a result, companies face the dual challenge of reducing headcount due to AI automation while also increasing their AI talent levels through hiring and reskilling.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        For example, product managers (PMs) may need to evolve into roles such as "prompt engineers" or "Generative AI PM Specialists." With proper training, a PM with generative AI skills could potentially complete project-related tasks 40% faster, as demonstrated by productivity gains highlighted in the McKinsey report. IBM Software, for instance, saw a 30 to 40 percent increase in developer productivity when utilizing gen AI tools, underscoring the transformative potential of these technologies.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        The McKinsey report identifies that integrating gen AI capabilities effectively requires companies to "rewire how they work," particularly in developing talent. However, focusing solely on generative AI will not suffice. Organizations must adopt a holistic approach encompassing Workforce Training, Organizational Change Management, Employee and Customer Experience, and People and Business Value Programs. Only by addressing these interconnected areas can companies fully capitalize on gen AI's potential while managing the complexities of transformation.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        For HR and service delivery functions, the task is monumental. These departments must balance the immediate need to reskill and redeploy talent with the longer-term goal of creating a sustainable AI-ready workforce. This involves building apprenticeship models, as the McKinsey article suggests, and rethinking strategic workforce planning to focus on skills rather than rigid roles. A strategic shift toward skills-based talent management will allow organizations to be more agile and responsive to rapid technological advancements.
+    </p>
+
+    <h3 style="font-size: 1.5em; color: #2980B9; margin-top: 20px;">Top 3 Strategic Actions for HR Leaders</h3>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        <strong>Implement Skills-Based Workforce Planning:</strong> Move away from traditional role-based planning and create a dynamic inventory of skills within the organization. Leverage AI tools to assess current skills, identify gaps, and prioritize reskilling efforts to align with strategic business goals.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        <strong>Develop Comprehensive Apprenticeship Programs:</strong> Establish apprenticeship models where senior employees mentor less experienced colleagues. Ensure these programs are incentivized and supported with structured learning paths to develop both technical and soft skills necessary for AI-driven roles.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        <strong>Enhance Change Management and Employee Experience Initiatives:</strong> Prepare the workforce for AI adoption by investing in change management programs that address resistance, build trust, and enhance the employee experience. Focus on transparent communication and provide continuous support to facilitate the transition to new roles and responsibilities.
+    </p>
+
+    <h3 style="font-size: 1.5em; color: #2980B9; margin-top: 20px;">Top 3 Strategic Actions for CTOs</h3>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        <strong>Standardize AI Tools and Frameworks:</strong> Develop a unified AI strategy by standardizing the tools, models, and platforms used across the organization. This will help reduce complexity, streamline processes, and ensure consistent quality and risk management.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        <strong>Invest in Scalable AI Talent Development Programs:</strong> Create targeted training programs to build AI capabilities at all levels. This includes investing in upskilling current staff and hiring specialized AI talent to fill critical gaps. Make use of low-code and no-code tools to democratize AI usage across the organization.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        <strong>Integrate AI Risk Management into Development Processes:</strong> Develop clear guidelines and policies for managing AI-related risks. This includes training software teams to understand AI risks, use emerging testing tools, and integrate safeguards into their workflows. As AI technologies evolve, continuously update these policies to reflect the latest challenges and best practices.
+    </p>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #34495E;">
+        By focusing on these strategic actions, HR leaders and CTOs can better prepare their organizations to navigate the AI revolution. Companies that prioritize a balanced approach to technology adoption, talent management, and organizational change will be well-positioned to harness the full potential of generative AI, turning uncertainty into opportunity.
+    </p>
+
+
+      <p>
+    Our article references key insights and strategies discussed in the McKinsey article "The Gen AI Skills Revolution: Rethinking Your Talent Strategy." This McKinsey report explores the urgent need for companies to adapt their talent strategies in response to the rise of generative AI, emphasizing the importance of reskilling, workforce transformation, and integrating AI technologies to maintain a competitive edge.
+    <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-gen-ai-skills-revolution-rethinking-your-talent-strategy">https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-gen-ai-skills-revolution-rethinking-your-talent-strategy</a>
+ </p>
+   </div>
+
+<div class="position-item">
+    <h3><strong style="font-size: 24px;">Ready to talk about the People side of your Generative AI investment?</strong></h3>
+    <p style="font-size: 18px; font-weight: bold;">
+Our approach to Generative AI prioritizes human-centric design and employee engagement. By integrating change management and business outcomes, we ensure AI initiatives are aligned with employee needs and organizational culture, driving sustainable growth and competitive advantage.
+
+    </p>
+
+    <p>
+        <a href="ContactUs.html" class="cta-button">Let's talk People Value →</a>
+    </p>
+</div>
+
+
+
+
+
+
+<div style="text-align: center; margin-bottom: 20px;">
+    <h2 style="font-size: 2em; color: #2C3E50; font-weight: bold;">Our In-house Insights</h2>
+</div>
+
+<div style="display: flex; justify-content: space-between; padding: 20px 0; margin-top: 40px;">
+
+
+    <div style="flex: 1; padding: 0 10px; text-align: center;">
+        <img src="img/article1thumb.jpg" alt="A Consulting-Led Approach to Gen AI" style="width: 100%; max-width: 300px; height: 300px; object-fit: cover;">
+        <div style="padding-top: 10px;">
+            <h3 style="font-size: 1.2em; color: #2C3E50;">A Consulting-Led Approach to Gen AI</h3>
+            <p style="font-size: 1em; color: #34495E;">Explore how a consulting led approach will maximize long term growth.</p>
+            <a href="article1.html" style="font-size: 1em; color: #2980B9; text-decoration: none;">Read the full story →</a>
+        </div>
+    </div>
+    <div style="flex: 1; padding: 0 10px; text-align: center;">
+        <img src="img/article2thumb.jpg" alt="AI-Driven Autonomous Agents" style="width: 100%; max-width: 300px; height: 300px; object-fit: cover;">
+        <div style="padding-top: 10px;">
+            <h3 style="font-size: 1.2em; color: #2C3E50;">AI-Driven Autonomous Agents</h3>
+            <p style="font-size: 1em; color: #34495E;">AI powered autonomous agents will be the next significant game changer in the field of AI.</p>
+            <a href="article2.html" style="font-size: 1em; color: #2980B9; text-decoration: none;">Learn about AI Agents →</a>
+        </div>
+    </div>
+    <div style="flex: 1; padding: 0 10px; text-align: center;">
+        <img src="img/article3athumb.jpg" alt="Voice Cloning for the Enterprise" style="width: 100%; max-width: 300px; height: 300px; object-fit: cover;">
+        <div style="padding-top: 10px;">
+            <h3 style="font-size: 1.2em; color: #2C3E50;">Generative AI Business Value</h3>
+            <p style="font-size: 1em; color: #34495E;">
+                Our Generative AI Consulting and Maturity Model and Roadmaps maximizing returns.
+            </p>
+            <a href="article4.html" style="font-size: 1em; color: #2980B9; text-decoration: none;">Learn about Gen AI Business Value Workshop →</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Strategic Consulting</a></li>
+                    <li><a href="#">Custom Gen AI Solutions</a></li>
+                    <li><a href="#">Application Management</a></li>
+                    <li><a href="#">AI Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Whitepapers</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.414 6.967h-1.86c-.692 0-.825.334-.825.858v1.732h2.674l-.251 2.718h-2.423v7.713H9.896v-7.713H7.764v-2.718h2.132V7.644c0-2.13 1.102-3.246 3.509-3.246h1.976v2.569z"></path></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.11 9.46c.005.11.007.22.007.33 0 3.4-2.586 7.32-7.32 7.32a7.27 7.27 0 01-3.944-1.156 5.18 5.18 0 003.82-1.07 2.58 2.58 0 01-2.41-1.79 2.57 2.57 0 001.16-.044 2.58 2.58 0 01-2.07-2.53v-.033c.348.193.746.31 1.17.323a2.58 2.58 0 01-.798-3.44 7.32 7.32 0 005.32 2.7 2.58 2.58 0 014.39-2.35 5.15 5.15 0 001.64-.627 2.59 2.59 0 01-1.13 1.42 5.12 5.12 0 001.48-.405 5.23 5.23 0 01-1.28 1.33z"></path></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 16H8v-6h2v6zM9 9.11c-.63 0-1.14-.51-1.14-1.14s.51-1.14 1.14-1.14 1.14.51 1.14 1.14S9.63 9.11 9 9.11zM17 16h-2v-3.23c0-.75-.02-1.71-1.04-1.71-1.04 0-1.2.82-1.2 1.66V16h-2v-6h1.92v.88h.03c.27-.51.92-1.04 1.89-1.04 2.02 0 2.4 1.33 2.4 3.05V16z"></path></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 InteractiveGroup.ai Inc. All rights reserved.</p>
+
+                     <p style="font-size: 0.8em; color: #555;">
+    Some of the text and images on this site may have been generated with the assistance of AI tools. However, all concepts, services, and solutions are crafted by our expert human team. We are a human-first company by design, advocating for "human-in-the-loop" processes in our strategies and solutions. This approach not only builds trust but also ensures we harness the full potential of human capital in everything we do.
+</p>
+
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Change header background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.header').classList.add('scrolled');
+            } else {
+                document.querySelector('.header').classList.remove('scrolled');
+            }
+        });
+
+        // Add hover effect to benefit items
+        document.querySelectorAll('.benefit-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#bae6fd';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#ffffff';
+            });
+        });
+
+        // Add hover effect to position items
+        document.querySelectorAll('.position-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#e0f2fe';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#ffffff';
+            });
+        });
+    </script>
+
+</body></html>
